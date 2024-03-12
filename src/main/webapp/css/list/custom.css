@@ -1,0 +1,37 @@
+.mb-board .mb-qanda-content-box{border:solid 1px #dbdbdb;padding:10px 15px;margin-bottom:20px;}
+.mb-board .mb-qanda-reply-box{border:solid 1px #dbdbdb;padding:17px 15px 1px;margin-bottom:10px;}
+.mb-board .mb-qanda-reply-item-box{border:solid 1px #E7E7E7;padding:10px 15px 10px;margin-bottom:14px;}
+.mb-board .mb-qanda-write-box{border:solid 1px #dbdbdb;padding:15px 15px;margin-bottom:10px;}
+
+.mb-board .mb-qanda-reply-select{border:solid 2px #dbdbdb;}
+.mb-style1 .table-write>tbody td.content-box{padding:0px !important;}
+
+.mb-board .cmt-input-head{margin-top:5px;}
+.mb-board .cmt-list-box{margin-top:0px; }
+.mb-board .mb-qanda-content-box .main-style1 .table>tbody>tr>th,
+.mb-board .mb-qanda-reply-box .table>tbody>tr>th,
+.mb-board .mb-qanda-content-box .main-style1 .table>tbody>tr>td,
+.mb-board .mb-qanda-reply-box .table>tbody>tr>td{border-bottom:solid 1px #E7E7E7 !important;}
+.mb-board .mb-qanda-item-box:first-child{padding:17px 15px;}
+.mb-board .mb-qanda-reply-text-box{padding:5px 0px;border:solid 1px #dbdbdb;border-bottom:none;background-color:#F9F9F9;text-align:center;font-weight:bold;font-size:13px;}
+.mb-board .mb-qanda-reply-text-box .mb-qanda-reply-text{letter-spacing: 2px;}
+
+.mb-board .mb-reply-status{font-size:12px !important;color:#FFF; font-weight:600;background-color:#a3a3a3;}
+.mb-board div.mb-reply-status{margin:0 6px;border-radius:2px;padding:2px 1px; border:solid 1px #999;}
+.mb-board span.mb-reply-status{}
+.mb-board .mb-reply-select{background-color:#df4a32; color:#fff; border:solid 1px #d26c6c !important;}
+.mb-board .mb-show-mobile.mb-reply-select, .mb-board .mb-show-mobile.mb-reply-status{background-color:#fff; border:none !important; color:#D00; font-weight:normal;}
+
+.mb-board .reply-count-num{font-weight:500}
+.mb-mobile .mb-board .mb-reply-status{padding:1px 2px;text-align:center;word-break: keep-all !important;} 
+
+.mb-board .mb-style1 .view-td-titlebox{}
+.mb-board .mb-style1 .view-td-title{padding-bottom:7px;}
+.mb-board .mb-style1 .view-td-title span{font-size:17px !important; font-weight:600; color:#555555; border:none; min-width:230px !important;}
+.mb-board .mb-style1 .view-td-date{font-size:13px; color:#777; text-align:left !important;}
+.mb-board .mb-style1 .table-view{border-top:none !important;}
+
+.mb-board .mb-qanda-reply-select{position:relative; border: double 3px #dbdbdb;}
+.mb-board .mb-qanda-reply-lables{background:url('../images/qanda-reply-lables2.png') no-repeat 0 0; width:40px; height:50px;position: absolute; top: -12px; left: -15px;z-index:1;}
+.mb-board .mb-style1.board-view .cmt-count-box {font-weight:bold !important; font-size:13px !important;color: #676767;vertical-align:top !important;}
+.mb-board .mb-style1.board-view .view-td-hit {font-weight:bold !important; font-size:13px !important;color: #676767;vertical-align:top !important;}

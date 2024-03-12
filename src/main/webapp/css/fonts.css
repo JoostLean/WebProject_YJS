@@ -1,0 +1,31 @@
+@charset "UTF-8";
+body,h1,h2,h3,h4,h5,h6,ul,li,p,input,button,select,textarea,a,label,table,form,tr,th,td,fieldset,b,u,dl,dt,dd,caption,header,hgroup,nav,section,article,aside,footer,small,strike,strong,sub,sup {
+    font-family: '나눔고딕','Nanum Gothic','Dotum','돋움',sans-serif;
+    font-style: normal;
+}
+
+body,a {
+    color: #555555;
+}
+
+.mb-board div {
+    font-family: '나눔고딕','Nanum Gothic','Dotum','돋움',sans-serif;
+    font-style: normal;
+}
+
+body {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    background: none;
+}
+
+a:hover,button:hover {
+    text-decoration: none;
+    cursor: pointer !important;
+    background: none;
+    color: #333;
+}

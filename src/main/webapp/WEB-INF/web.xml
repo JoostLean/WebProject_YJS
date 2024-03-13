@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+  <display-name>WebProject_YJS</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>INIT_PARAM</param-name>
+    <param-value>web.xml에 저장한 초기화 매개변수</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OracleDriver</param-name>
+    <param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OracleURL</param-name>
+    <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+  </context-param>
+  <session-config>
+    <session-timeout>20</session-timeout>
+  </session-config>
+  <servlet>
+    <servlet-name>MemberAuth</servlet-name>
+    <servlet-class>servlet.MemberAuth</servlet-class>
+    <init-param>
+      <param-name>admin_id</param-name>
+      <param-value>nakja</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberAuth</servlet-name>
+    <url-pattern>/MemberAuth.mvc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>MemberRegist</display-name>
+    <servlet-name>MemberRegist</servlet-name>
+    <servlet-class>member.MemberRegist</servlet-class>
+  </servlet>
+</web-app>

@@ -9,13 +9,38 @@
 <link rel="stylesheet" href="./css/style.css" />
 <link rel="stylesheet" href="./css/regist.css" />
 </head>
+<script>
+function validateForm(form) {
+	if (form.user_id.length < 8) {
+		alert("8글자 이상의 아이디를 입력해주세요.");
+		form.user_id.focus();
+		return false;
+	}
+	if (form.user_name.value == "") {
+		alert("이름을 입력해주세요.");
+		form.user_name.focus();
+		return false;
+	}
+	if (form.passwd.value == "") {
+		alert("비밀번호를 입력해주세요.");
+		form.passwd.focus();
+		return false;
+	}
+	if (form.passwd2.value == "") {
+		alert("비밀번호 확인란에 비밀번호를 입력해주세요.");
+		form.passwd2.focus();
+		return false;
+	}
+}
+</script>
 <body>
 	<div class="mb-board mb-user">
 		<div class="mb-level-0 mb-name-user-register mb-mode-user mb-layout-responsive-box mb-layout-responsive-box2 mb-skin-bbs-basic">
 			<div class="mb-style1">
 				<div>
 					<div class="main-style1 mb-max-width-700" id="users_board_box">
-						<form name="mb_form_user" id="mb_form_user" method="post"
+						<form name="mb_form_user" id="mb_form_user" onsubmit="return validateForm(this);" method="post"
+							action="regist.do"
 							enctype="multipart/form-data" autocomplete="off">
 							<input type="password" style="display: none !important;">
 							<div class="mb-user-title">
@@ -242,10 +267,14 @@
 								</tbody>
 							</table>
 							<div class="btn-box-center padding-bottom-10" id="mb_btn_box">
-								<button onclick="sendUserRegisterData();return false;"
+								<!-- <button onclick="sendUserRegisterData();return false;"
 									title="가입하기"
 									class="btn btn-default btn-send-user btn-send-form max-width-m100"
 									type="button">
+									<span>가입하기</span>
+								</button> -->
+								<button type="submit" title="가입하기"
+									class="btn btn-default btn-send-user btn-send-form max-width-m100">
 									<span>가입하기</span>
 								</button>
 							</div>

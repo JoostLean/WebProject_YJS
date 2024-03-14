@@ -11,7 +11,7 @@
 </head>
 <body>
 	<jsp:include page="./link.jsp" />
-	<strong>${ authMessage }</strong>
+	<%-- <strong>${ authMessage }</strong> --%>
 	<div class="mb-board mb-user">
 		<div class="mb-level-0 mb-name-users mb-mode-user mb-skin-bbs-basic">
 			<div class="mb-style1">
@@ -34,7 +34,7 @@
 								}
 								</script>
 								<!-- <form action="" id="mb_form_login" method="POST" onsubmit="return false"> -->
-								<form action="/MemberAuth.mvc" id="mb_form_login" method="POST" onsubmit="return validateForm(this);">
+								<form action="login_acc.jsp" id="mb_form_login" method="POST" onsubmit="return validateForm(this);">
 									<input type="hidden" name="mode" id="mode" value="user">
 									<input type="hidden" name="board_action" id="board_action" value="login">
 									<input type="hidden" name="board_name" value="users">
@@ -81,10 +81,10 @@
 											<span>로그인</span>
 										</button>
 									</div>
-									<div class="user-login-item">
+									<!-- <div class="user-login-item">
 										<div class="clear"></div>
 										<div class="mb-social mb-social-login">
-											<!-- <div class="mb-social-title">Social Login</div> -->
+											<div class="mb-social-title">Social Login</div>
 											<div class="mb-social-btn-box">
 												<a style="margin-right: 10px;"
 													onclick="requestSocialLoginData('kakao')">
@@ -119,20 +119,24 @@
 													class="radius-4"></a>
 											</div>
 										</div>
-									</div>
+									</div> -->
 								</form>
 							</div>
 							<div class="mb-login-btn-box">
 								<div class="btn-box-right btn-login-box-wrap">
-									<button onclick="movePage('https://demo.mangboard.com/user_register/');return false;"
+									<button onclick="location.href='regist.jsp'"
 										title="회원 가입" class="btn btn-default btn-write" type="button">
 										<span>회원 가입</span>
 									</button>
-									<button onclick="movePage('https://demo.mangboard.com/lost_password/');return false;"
+<!-- 									<button onclick="movePage('https://demo.mangboard.com/user_register/');return false;"
+										title="회원 가입" class="btn btn-default btn-write" type="button">
+										<span>회원 가입</span>
+									</button> -->
+									<!-- <button onclick="movePage('https://demo.mangboard.com/lost_password/');return false;"
 										title="아이디/비밀번호 찾기" class="btn btn-default btn-write"
 										type="button">
 										<span>아이디/비밀번호 찾기</span>
-									</button>
+									</button> -->
 								</div>
 							</div>
 						</div>

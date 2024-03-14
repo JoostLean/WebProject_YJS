@@ -21,10 +21,18 @@
     <param-name>OracleURL</param-name>
     <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
   </context-param>
+    <context-param>
+    <param-name>OracleId</param-name>
+    <param-value>musthave</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OraclePwd</param-name>
+    <param-value>1234</param-value>
+  </context-param>
   <session-config>
     <session-timeout>20</session-timeout>
   </session-config>
-  <servlet>
+<!--   <servlet>
     <servlet-name>MemberAuth</servlet-name>
     <servlet-class>servlet.MemberAuth</servlet-class>
     <init-param>
@@ -35,7 +43,7 @@
   <servlet-mapping>
     <servlet-name>MemberAuth</servlet-name>
     <url-pattern>/MemberAuth.mvc</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <servlet>
     <display-name>MemberRegist</display-name>
     <servlet-name>MemberRegist</servlet-name>

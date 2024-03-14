@@ -45,8 +45,11 @@ public class MemberRegist extends HttpServlet {
 		dao.regMemberDTO(user_id, username, password);
 		dao.close();
 		
-		//resp.sendRedirect("result.jsp");
+		//resp.sendRedirect("Result.jsp");
 		req.setAttribute("dto", dto);
+		req.setAttribute("authMessage", "<p>" + user_id + " 님. 아이디 " + username + "로 가입되셨습니다.</p>"
+						+ "<p>가입을 환영합니다.</p>");
+		req.setAttribute("resultBtnType", "regist");
 		req.getRequestDispatcher("result.jsp").forward(req, resp);
 	}
 }

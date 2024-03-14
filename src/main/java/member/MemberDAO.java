@@ -60,7 +60,7 @@ public class MemberDAO extends JDBConnect {
 		/* 로그인 폼에서 입력한 아이디, 패스워드를 통해 인파라미터를 설정할
 		수 있도록 쿼리문을 작성 */
 		String query = "SELECT * FROM member WHERE id=? "
-				+ " AND pass=?";		
+				+ " AND pass=?";
 		try {
 			//쿼리문 실행과 인파라미터 설정을 위한 prepared 인스턴스 생성
 			psmt = con.prepareStatement(query);
@@ -74,8 +74,8 @@ public class MemberDAO extends JDBConnect {
 				//정보가 있다면 DTO에 저장한다.
 				dto.setId(rs.getString("id"));
 				dto.setPass(rs.getString("pass"));
-				dto.setName(rs.getString(3));
-				dto.setRegidate(rs.getString(4));
+//				dto.setName(rs.getString(3));
+//				dto.setRegidate(rs.getString(4));
 			}
 		}
 		catch (Exception e) {

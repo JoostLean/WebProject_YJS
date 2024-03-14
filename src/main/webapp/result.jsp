@@ -5,6 +5,7 @@
 <%
 request.setCharacterEncoding("UTF-8");
 MemberDTO dto = (MemberDTO) request.getAttribute("dto");
+String resultBtnType = (String) session.getAttribute("resultBtnType");
 %>
 <!DOCTYPE html>
 <html>
@@ -25,8 +26,10 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 					<div class="mb-login-template">
 						<div class="mb-login-template1">
 							<div class="mb-login-item-box">
+								${ authMessage }
 								<!-- <form action="" id="mb_form_login" method="POST" onsubmit="return false"> -->
-								<%
+								
+								<%-- <%
 								if (dto.getId() != null) {
 								%>
 								<p><%=dto.getName() %> 님. 아이디 <%=dto.getId() %>로 가입되셨습니다.</p>
@@ -38,14 +41,41 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 								<p>다시 시도해주세요.</p>
 								<%
 								}
-								%>
+								%> --%>
 							</div>
 							<div class="mb-login-btn-box">
 								<div class="btn-box-right btn-login-box-wrap">
 									<%
+									if(resultBtnType == "regist") {
+									%>
+									<button onclick="location.href='login_form.jsp'"
+										title="로그인" class="btn btn-default"
+										type="button">
+										<span>로그인</span>
+									</button>
+									<%
+									} else if (resultBtnType.equals("login")) {
+									%>
+									<button onclick="location.href='list.jsp'"
+										title="게시판 바로가기" class="btn btn-default"
+										type="button">
+										<span>게시판 바로가기</span>
+									</button>
+									<%
+									} else if (resultBtnType.equals("loginError")) {
+									%>
+									<button onclick="location.href='login_form.jsp'"
+										title="로그인" class="btn btn-default"
+										type="button">
+										<span>로그인</span>
+									</button>
+									<%
+									}
+									%>
+<%-- 								<%
 									if (dto.getId() != null) {
 									%>
-									<button onclick="location.href='LoginForm.jsp'"
+									<button onclick="location.href='login_form.jsp'"
 										title="로그인" class="btn btn-default"
 										type="button">
 										<span>로그인</span>
@@ -60,7 +90,7 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 									</button>
 									<%
 									}
-									%>
+									%> --%>
 								</div>
 							</div>
 						</div>

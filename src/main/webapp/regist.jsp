@@ -82,7 +82,7 @@ function validateForm(form) {
 												</div>
 											</div>
 										</td>
-									</tr>
+									</tr>   
 									<tr id="mb_user_register_tr_user_name">
 										<td colspan="2">
 											<div class="mb-responsive-box">
@@ -110,7 +110,7 @@ function validateForm(form) {
 														<input style="width: 100%;" name="passwd"
 															id="mb_user_register_passwd_w4" title="" maxlength="30"
 															value="" autocomplete="off" type="password">
-														<span class="mb-description">(비밀번호는 8자리 이상 입력해 주세요)</span>
+														<!-- <span class="mb-description">(비밀번호는 8자리 이상 입력해 주세요)</span> -->
 													</div>
 												</div>
 											</div>

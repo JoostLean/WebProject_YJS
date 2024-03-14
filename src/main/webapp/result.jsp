@@ -5,7 +5,8 @@
 <%
 request.setCharacterEncoding("UTF-8");
 MemberDTO dto = (MemberDTO) request.getAttribute("dto");
-String resultBtnType = (String) session.getAttribute("resultBtnType");
+String resultBtnType = (String) request.getAttribute("resultBtnType");
+String resultBtnTypeJsp = (String) session.getAttribute("resultBtnType");
 %>
 <!DOCTYPE html>
 <html>
@@ -54,7 +55,7 @@ String resultBtnType = (String) session.getAttribute("resultBtnType");
 										<span>로그인</span>
 									</button>
 									<%
-									} else if (resultBtnType.equals("login")) {
+									} else if (resultBtnTypeJsp.equals("login")) {
 									%>
 									<button onclick="location.href='list.jsp'"
 										title="게시판 바로가기" class="btn btn-default"
@@ -62,7 +63,7 @@ String resultBtnType = (String) session.getAttribute("resultBtnType");
 										<span>게시판 바로가기</span>
 									</button>
 									<%
-									} else if (resultBtnType.equals("loginError")) {
+									} else if (resultBtnTypeJsp.equals("loginError")) {
 									%>
 									<button onclick="location.href='login_form.jsp'"
 										title="로그인" class="btn btn-default"

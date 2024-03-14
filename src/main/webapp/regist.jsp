@@ -16,6 +16,12 @@ function validateForm(form) {
 		form.user_id.focus();
 		return false;
 	}
+	if ((form.user_id.value[0] < 'a' || form.user_id.value[0] > 'z') &&
+		(form.user_id.value[0] < 'A' || form.user_id.value[0] > 'Z')) {
+		alert("아이디는 영문으로 시작하여야 합니다.");
+		form.user_name.focus();
+		return false;
+	}
 	if (form.user_name.value == "") {
 		alert("이름을 입력해주세요.");
 		form.user_name.focus();
@@ -70,7 +76,8 @@ function validateForm(form) {
 															<span>중복확인</span>
 														</button>
 														<input type="hidden" name="user_id_check" value="">
-														<span class="mb-description">(아이디는 영문으로 시작하는 4~50자 사이의 영문+숫자 조합으로 입력해 주세요)</span>
+														<!-- <span class="mb-description">(아이디는 영문으로 시작하는 4~50자 사이의 영문+숫자 조합으로 입력해 주세요)</span> -->
+														<span class="mb-description">(아이디는 영문으로 시작하고, 8글자 이상 입력해야 합니다.)</span>
 													</div>
 												</div>
 											</div>

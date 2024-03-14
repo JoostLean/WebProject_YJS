@@ -71,6 +71,19 @@ String resultBtnTypeJsp = (String) session.getAttribute("resultBtnType");
 										<span>로그인</span>
 									</button>
 									<%
+									} else if (resultBtnTypeJsp == "logged") {
+									%>
+									<button onclick="location.href='regist.jsp'"
+										title="게시판 바로가기" class="btn btn-default"
+										type="button">
+										<span>회원정보수정</span>
+									</button>
+									<button onclick="location.href='list.jsp'"
+										title="게시판 바로가기" class="btn btn-default"
+										type="button">
+										<span>게시판 바로가기</span>
+									</button>
+									<%
 									} else if (resultBtnTypeJsp == "logout") {
 									%>
 									<button onclick="location.href='login_form.jsp'"

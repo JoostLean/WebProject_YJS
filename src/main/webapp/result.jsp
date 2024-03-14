@@ -55,7 +55,7 @@ String resultBtnTypeJsp = (String) session.getAttribute("resultBtnType");
 										<span>로그인</span>
 									</button>
 									<%
-									} else if (resultBtnTypeJsp.equals("login")) {
+									} else if (resultBtnTypeJsp == "login") {
 									%>
 									<button onclick="location.href='list.jsp'"
 										title="게시판 바로가기" class="btn btn-default"
@@ -63,12 +63,20 @@ String resultBtnTypeJsp = (String) session.getAttribute("resultBtnType");
 										<span>게시판 바로가기</span>
 									</button>
 									<%
-									} else if (resultBtnTypeJsp.equals("loginError")) {
+									} else if (resultBtnTypeJsp == "loginError") {
 									%>
 									<button onclick="location.href='login_form.jsp'"
 										title="로그인" class="btn btn-default"
 										type="button">
 										<span>로그인</span>
+									</button>
+									<%
+									} else if (resultBtnTypeJsp == "logout") {
+									%>
+									<button onclick="location.href='login_form.jsp'"
+										title="로그인 페이지로 이동" class="btn btn-default"
+										type="button">
+										<span>로그인 페이지로 이동</span>
 									</button>
 									<%
 									}

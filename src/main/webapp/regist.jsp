@@ -11,7 +11,7 @@
 </head>
 <script>
 function validateForm(form) {
-	if (form.user_id.length < 8) {
+	if (form.user_id.value.length < 8) {
 		alert("8글자 이상의 아이디를 입력해주세요.");
 		form.user_id.focus();
 		return false;
@@ -40,8 +40,7 @@ function validateForm(form) {
 				<div>
 					<div class="main-style1 mb-max-width-700" id="users_board_box">
 						<form name="mb_form_user" id="mb_form_user" onsubmit="return validateForm(this);" method="post"
-							action="regist.do"
-							enctype="multipart/form-data" autocomplete="off">
+							action="regist.do" enctype="multipart/form-data" autocomplete="off">
 							<input type="password" style="display: none !important;">
 							<div class="mb-user-title">
 								<span>회원가입</span>
@@ -127,7 +126,7 @@ function validateForm(form) {
 											</div>
 										</td>
 									</tr>
-									<tr id="mb_user_register_tr_user_email">
+									<!-- <tr id="mb_user_register_tr_user_email">
 										<td colspan="2">
 											<div class="mb-responsive-box">
 												<div class="mb-responsive-box-item">
@@ -142,8 +141,8 @@ function validateForm(form) {
 												</div>
 											</div>
 										</td>
-									</tr>
-									<tr id="mb_user_register_tr_user_phone">
+									</tr> -->
+									<!-- <tr id="mb_user_register_tr_user_phone">
 										<td colspan="2">
 											<div class="mb-responsive-box">
 												<div class="mb-responsive-box-item">
@@ -177,8 +176,8 @@ function validateForm(form) {
 												</div>
 											</div>
 										</td>
-									</tr>
-									<tr id="mb_user_register_tr_user_picture">
+									</tr> -->
+									<!-- <tr id="mb_user_register_tr_user_picture">
 										<td colspan="2">
 											<div class="mb-responsive-box">
 												<div class="mb-responsive-box-item">
@@ -193,8 +192,8 @@ function validateForm(form) {
 												</div>
 											</div>
 										</td>
-									</tr>
-									<tr id="mb_user_register_tr_home_address1">
+									</tr> -->
+									<!-- <tr id="mb_user_register_tr_home_address1">
 										<td colspan="2">
 											<div class="mb-responsive-box">
 												<div class="mb-responsive-box-item">
@@ -238,8 +237,8 @@ function validateForm(form) {
 												</div>
 											</div>
 										</td>
-									</tr>
-									<tr id="mb_user_register_tr_allow_mailing">
+									</tr> -->
+									<!-- <tr id="mb_user_register_tr_allow_mailing">
 										<td colspan="2">
 											<div class="mb-responsive-box">
 												<div class="mb-responsive-box-item">
@@ -263,7 +262,7 @@ function validateForm(form) {
 												</div>
 											</div>
 										</td>
-									</tr>
+									</tr> -->
 								</tbody>
 							</table>
 							<div class="btn-box-center padding-bottom-10" id="mb_btn_box">

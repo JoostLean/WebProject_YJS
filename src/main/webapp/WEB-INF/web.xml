@@ -41,4 +41,8 @@
     <servlet-name>MemberRegist</servlet-name>
     <servlet-class>member.MemberRegist</servlet-class>
   </servlet>
+<!--   <servlet-mapping>
+    <servlet-name>MemberRegist</servlet-name>
+    <url-pattern>/regist.do</url-pattern>
+  </servlet-mapping> -->
 </web-app>

@@ -5,13 +5,11 @@ public class MemberDTO {
 	private String pass;
 	private String name;
 	private String regidate;
+//	private java.sql.Date regidate;
 	
-	public MemberDTO() {
-		// TODO Auto-generated constructor stub
-	}
-	public MemberDTO(String user_id, String user_name, String password) {
-		super();
-	}
+//	public MemberDTO(String user_id, String user_name, String password) {
+//		super();
+//	}
 	public String getId() {
 		return id;
 	}
@@ -36,4 +34,10 @@ public class MemberDTO {
 	public void setRegidate(String regidate) {
 		this.regidate = regidate;
 	}
+//	public java.sql.Date getRegidate() {
+//		return regidate;
+//	}
+//	public void setRegidate(java.sql.Date regidate) {
+//		this.regidate = regidate;
+//	}
 }

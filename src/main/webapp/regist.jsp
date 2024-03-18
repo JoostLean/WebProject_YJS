@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
 <link rel="stylesheet" href="./css/fonts.css" />
 <link rel="stylesheet" href="./css/style.css" />
 <link rel="stylesheet" href="./css/regist.css" />
@@ -38,6 +39,37 @@ function validateForm(form) {
 		return false;
 	}
 }
+function checkUserIDExist() {
+	if (document.getElementById("mb_user_register_user_id_w2").value) {
+		//XHR 객체를 생성한다.
+		var xhr = new XMLHttpRequest();
+		/* XHR을 post방식으로 요청하고 MemberCheckExist.java(서블릿)으로
+		폼에서 받아온 아이디값을 전송한다. */
+        xhr.open("POST", "user_exist_check.do", true);
+		//post방식인 경우 Content-Type을 지정해야 한다고 한다.
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+		//콜백함수
+        xhr.onreadystatechange = function() {
+			//xhr.readyState==4 : 데이터를 전부 받은 상태, xhr.status==200 : 요청성공
+        	if (xhr.readyState == 4 && xhr.status == 200) {
+        		//뒤에 trim() 안 붙이면 응답값의 좌우에 무조건 공백이 있는걸로 인식되서 처리 안됨
+        		if (xhr.responseText.trim() == "id_exist") {
+        			alert("이미 존재하는 아이디입니다.");
+        		} else if (xhr.responseText.trim() == "id_no_exist") {
+        			alert("사용 가능한 아이디입니다.");
+        		} else {
+        			alert("아이디 검사 중 오류 발생. 다시 시도해주세요.");
+        		}
+        	}
+        };
+        //POST방식으로 "user_id"값 전송. 서블릿에도 해당 파라미터를 받아오는 구문이 있다.
+        xhr.send("user_id=" + document.getElementById("mb_user_register_user_id_w2").value);
+	} else {
+		alert("아이디를 입력해주세요.");
+	}
+	return false;
+}
 </script>
 <body>
 	<div class="mb-board mb-user">
@@ -66,15 +98,17 @@ function validateForm(form) {
 														<label for="mb_user_register_user_id_w2">아이디(*)</label>
 													</div>
 													<div class="mb-responsive-box-content">
-														<input style="width: calc(100% - 6em);" name="user_id"
-															id="mb_user_register_user_id_w2" title="" value=""
-															type="text" maxlength="50">
-														<button onclick="checkUserIDExist();return false;"
-															title="중복확인" class="btn btn-default margin-left-5"
-															style="width: 5.7em; padding: 5px 0 !important; text-align: center;"
-															type="button">
-															<span>중복확인</span>
-														</button>
+														<div style="display:flex;">
+															<input style="width: 100%;" type="text" maxlength="50"
+																name="user_id" title="" id="mb_user_register_user_id_w2"
+																value="">
+															<button onclick="checkUserIDExist();return false;"
+																title="중복확인" class="btn btn-default margin-left-5"
+																style="white-space: nowrap; padding: 5px 14px !important; text-align: center;"
+																type="button">
+																<span style="margin-left:-100%;margin-right:-100%;">중복확인</span>
+															</button>														
+														</div>
 														<input type="hidden" name="user_id_check" value="">
 														<!-- <span class="mb-description">(아이디는 영문으로 시작하는 4~50자 사이의 영문+숫자 조합으로 입력해 주세요)</span> -->
 														<span class="mb-description">(아이디는 영문으로 시작하고, 8글자 이상 입력해야 합니다.)</span>
@@ -91,9 +125,10 @@ function validateForm(form) {
 														<label for="mb_user_register_user_name_w3">이름(*)</label>
 													</div>
 													<div class="mb-responsive-box-content">
-														<input style="width: 100%;" name="user_name"
-															id="mb_user_register_user_name_w3" title="" value=""
-															type="text" maxlength="20">
+														<input style="width: 100%;" type="text" maxlength="20"
+															name="user_name" title=""
+															id="mb_user_register_user_name_w3"
+															value="">
 													</div>
 												</div>
 											</div>
@@ -109,7 +144,8 @@ function validateForm(form) {
 													<div class="mb-responsive-box-content">
 														<input style="width: 100%;" name="passwd"
 															id="mb_user_register_passwd_w4" title="" maxlength="30"
-															value="" autocomplete="off" type="password">
+															autocomplete="off" type="password"
+															value="">
 														<!-- <span class="mb-description">(비밀번호는 8자리 이상 입력해 주세요)</span> -->
 													</div>
 												</div>

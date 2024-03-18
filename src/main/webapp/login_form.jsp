@@ -34,7 +34,7 @@
 								}
 								</script>
 								<!-- <form action="" id="mb_form_login" method="POST" onsubmit="return false"> -->
-								<form action="login_acc.jsp" id="mb_form_login" method="POST" onsubmit="return validateForm(this);">
+								<form action="login.do" id="mb_form_login" method="POST" onsubmit="return validateForm(this);">
 									<input type="hidden" name="mode" id="mode" value="user">
 									<input type="hidden" name="board_action" id="board_action" value="login">
 									<input type="hidden" name="board_name" value="users">

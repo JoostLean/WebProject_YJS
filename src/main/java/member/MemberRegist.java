@@ -1,5 +1,7 @@
 package member;
 
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 @WebServlet("/regist.do")
@@ -29,6 +30,7 @@ public class MemberRegist extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
+		
 		//Part part = req.getPart("user_picture");		
 		
 		MemberDTO dto = new MemberDTO();
@@ -47,7 +49,7 @@ public class MemberRegist extends HttpServlet {
 		
 		//resp.sendRedirect("Result.jsp");
 		req.setAttribute("dto", dto);
-		req.setAttribute("authMessage", "<p>" + user_id + " 님. 아이디 " + username + "로 가입되셨습니다.</p>"
+		req.setAttribute("authMessage", "<p>" + user_id + " 님. 아이디 " + username + "로 회원가입 신청이 완료되었습니다.</p>"
 						+ "<p>가입을 환영합니다.</p>");
 		req.setAttribute("resultBtnType", "regist");
 		req.getRequestDispatcher("result.jsp").forward(req, resp);

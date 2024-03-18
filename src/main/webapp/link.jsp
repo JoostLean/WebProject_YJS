@@ -7,7 +7,7 @@
         <% if (session.getAttribute("UserId") == null) { %>
             <a href="login_form.jsp">로그인</a>
         <% } else { %>
-            <a href="logout.jsp">로그아웃</a>
+            <a href="logout.do">로그아웃</a>
         <% } %>
             <!-- 8장과 9장의 회원제 게시판 프로젝트에서 사용할 링크 -->
             &nbsp;&nbsp;&nbsp; 

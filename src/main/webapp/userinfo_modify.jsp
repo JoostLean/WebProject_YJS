@@ -2,9 +2,6 @@
 <%@ page import="member.MemberDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-MemberDTO dto = (MemberDTO) request.getAttribute("dto");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +61,7 @@ function validateForm(form) {
 														<div style="display:flex;">
 															<input style="width: 100%; color:#aaaaaa !important;" type="text" maxlength="50"
 																name="user_id" title="" id="mb_user_register_user_id_w2"
-																value="${ dto.id }" readonly>
+																value="${ UserId }" readonly>
 															<!-- <button onclick="checkUserIDExist();return false;"
 																title="중복확인" class="btn btn-default margin-left-5"
 																style="white-space: nowrap; padding: 5px 14px !important; text-align: center;"
@@ -91,7 +88,7 @@ function validateForm(form) {
 														<input style="width: 100%;" type="text" maxlength="20"
 															name="user_name" title=""
 															id="mb_user_register_user_name_w3"
-															value="${ dto.name }">
+															value="${ UserName }">
 													</div>
 												</div>
 											</div>

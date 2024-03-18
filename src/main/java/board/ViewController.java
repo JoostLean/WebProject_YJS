@@ -33,6 +33,8 @@ public class ViewController extends HttpServlet {
 		//첨부파일이 있는 경우 이미지 출력하기
 		String fileName = dto.getSfile();
 		req.setAttribute("fileName", fileName);
+		System.out.println(dto.getName());
+		req.getSession().setAttribute("writer", dto.getName());
 		
 		//request영역에 DTO를 저장한 후 포워드
 		req.setAttribute("dto", dto);

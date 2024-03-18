@@ -1,7 +1,10 @@
-<%@ page import="member.MemberDTO"%>
-<%@ page import="member.MemberDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%
+String sfile = (String) request.getAttribute("prevSfile");
+String ofile = (String) request.getAttribute("prevOfile");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +42,7 @@
 <body>
 	<div id="s_qanda_board" class="mb-board">
 		<div class="mb-level-1 mb-name-s-qanda mb-mode-write mb-skin-bbs-qanda-m1">
-			<form action="write.do" onsubmit="return validateForm(this);"
+			<form action="edit.do" onsubmit="return validateForm(this);"
 				name="s_qanda_form_board_write" id="s_qanda_form_board_write"
 				method="post" enctype="multipart/form-data" autocomplete="off">
 				<!-- <input type="hidden" name="mb_nonce_value" value="2f5cf95d9ad6044fd961360392e720b2">
@@ -62,6 +65,12 @@
 				<input type="hidden" name="parent_user_pid" id="parent_user_pid" value="0">
 				<input type="hidden" name="calendar_date" id="calendar_date" value="">
 				<input type="password" autocomplete="off" style="display: none !important;"> -->
+				<!-- 수정할 게시물의 일련번호 -->
+				<input type="hidden" name="idx" value=${ dto.idx } />
+				<!-- 기존에 등록된 파일명으로 만약 수정페이지에서 첨부파일을 변경하지
+				않는다면 여기에 등록된 파일명을 update 처리한다. -->
+				<input type="hidden" name="prevOfile" value="${ dto.ofile }" />
+				<input type="hidden" name="prevSfile" value="${ dto.sfile }" />
 				<div class="mb-style1">
 					<div class="main-style1" id="s_qanda_board_box">
 						<div>
@@ -95,31 +104,32 @@
 								<tr id="mb_s_basic21_tr_user_name">
 									<th scope="row"><label for="mb_s_basic21_user_name_w3">작성자(*)</label></th>
 									<td>
-										<input class="mb-user-name" style="width:150px;"
+										<%-- <input class="mb-user-name" style="width:150px;"
 										name="user_name" id="mb_s_basic21_user_name_w3" title=""
-										value="${ UserName }" type="text" maxlength="20">
+										value="${ UserName }" type="text" maxlength="20"> --%>
+										<span>${ dto.name }</span>
 									</td>
 								</tr>
 								<tr id="mb_s_qanda_tr_title">
 									<th scope="row"><label for="mb_s_qanda_title_w5">제목(*)</label></th>
 									<td>
 										<input class="text-left" style="width: 99%;"
-										name="title" id="mb_s_qanda_title_w5" title="" value=""
-										type="text">
+										name="title" id="mb_s_qanda_title_w5" title="" value="${ dto.title }"
+										type="text" />
 									</td>
 								</tr>
 								<tr id="mb_s_qanda_tr_passwd">
 									<th scope="row"><label for="mb_s_qanda_passwd_w4">비밀번호(*)</label></th>
 									<td><input class="mb-passwd" style="width: 150px;"
 										name="passwd" id="mb_s_qanda_passwd_w4" title=""
-										maxlength="16" value="" autocomplete="off" type="password"></td>
+										maxlength="16" value="passwd-encrypted" autocomplete="off" type="password" readonly></td>
 								</tr>
 								<tr id="mb_s_qanda_tr_content">
 									<td class="content-box" colspan="2" style="overflow: visible;">
 										<input type="hidden" name="data_type" id="data_type" value="html">
 										<textarea class="mb-content"
 											style="width: 100%; height: 360px; /* visibility: hidden; display: none; */ resize: none;"
-											name="content" id="se_content" title="내용"></textarea>
+											name="content" id="se_content" title="내용">${ dto.content }</textarea>
 										<!-- <div class="mb-editor-composer mb-editor-composer-se_content"
 											style="border: 1px solid rgb(181, 181, 181); /* margin-top: -7px !important; */">
 											<input type="hidden" name="mb-editor-composer-id" value="se_content">
@@ -969,12 +979,22 @@
 								<tr id="mb_s_qanda_tr_file1">
 									<th scope="row"><label for="mb_s_qanda_file1_w8">파일1</label></th>
 									<td>
+										<c:if test="${ not empty dto.ofile }">
+										<label>
+										<input type="file" name="ofile" style="display:none !important;" />
+										<input class="mb-file-upload" name="file_delete_pid[]" id="mb_s_qanda_file1_w8"
+										title="" type="checkbox">[삭제]
+										<span>${ dto.ofile }</span>
+										</label>
+										</c:if>
+										<c:if test="${ empty dto.ofile }">
 										<!-- <input class="mb-file-upload" style="width: 300px;"
 										name="file1" id="mb_s_qanda_file1_w8" title="" value=""
 										type="file"> -->
 										<input class="mb-file-upload" style="width: 300px;"
 										name="ofile" id="mb_s_qanda_file1_w8" title="" value=""
 										type="file">
+										</c:if>
 									</td>
 								</tr>
 								<!-- <tr id="mb_s_qanda_tr_file2">

@@ -1,5 +1,12 @@
+<%@page import="java.util.Set"%>
+<%@ page import="board.MVCBoardDTO"%>
+<%@ page import="board.MVCBoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%
+MVCBoardDTO dto = new MVCBoardDTO();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,7 +81,7 @@
 									<td><a href="<%=request.getContextPath() %>/download.do?ofile=${ dto.ofile }
 										&sfile=${ dto.sfile }&idx=${ dto.idx }" class="file-download"
 										title="Download : ${ dto.downcount }"
-										onclick=""> <span>${ dto.sfile }
+										onclick=""> <span>${ dto.ofile }
 												<!-- <span class="file-size">(8.7KB)</span> -->
 										</span>
 									</a></td>
@@ -92,18 +99,26 @@
 								</span>
 								</span> <span class="view-td-hit view-td-hit">｜&nbsp; 조회수 ${ dto.visitcount }</span>
 							</div>
-							<button
+								<button
 								onclick="location.href='list3.do';" title="목록" class="btn btn-default btn-list" type="button">
-								<span>목록</span>
-							</button>
-							<button
-								onclick="" title="수정" class="btn btn-default btn-modify" type="button">
-								<span>수정</span>
-							</button>
-							<button
-								onclick="location.href='write.do';" title="글쓰기" class="btn btn-default btn-write" type="button">
-								<span>글쓰기</span>
-							</button>
+									<span>목록</span>
+								</button>
+								<c:if test="${ UserName == writer }">
+									<button
+										onclick="location.href='<%= request.getContextPath() %>/validate.do?mode=edit&idx=${ param.idx }';" title="수정" class="btn btn-default btn-modify" type="button">
+										<span>수정</span>
+									</button>
+									<button
+										onclick="" title="삭제" class="btn btn-default btn-delete" type="button">
+										<span>삭제</span>
+									</button>
+								</c:if>
+								<c:if test="${ UserName != writer }">
+									<button
+									onclick="location.href='write.do';" title="글쓰기" class="btn btn-default btn-write" type="button">
+										<span>글쓰기</span>
+									</button>
+								</c:if>
 							<div class="clear"></div>
 						</div>
 					</div>

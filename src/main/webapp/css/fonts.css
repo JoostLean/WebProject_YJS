@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 body,h1,h2,h3,h4,h5,h6,ul,li,p,input,button,select,textarea,a,label,table,form,tr,th,td,fieldset,b,u,dl,dt,dd,caption,header,hgroup,nav,section,article,aside,footer,small,strike,strong,sub,sup {
     font-family: '나눔고딕','Nanum Gothic','Dotum','돋움',sans-serif;
     font-style: normal;

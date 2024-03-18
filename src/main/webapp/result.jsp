@@ -62,7 +62,7 @@ String resultBtnTypeJsp = (String) session.getAttribute("resultBtnType");
 										type="button">
 										<span>메인페이지</span>
 									</button>
-									<button onclick="location.href='list.jsp'"
+									<button onclick="location.href='list3.do'"
 										title="게시판 바로가기" class="btn btn-default"
 										type="button">
 										<span>게시판 바로가기</span>
@@ -88,7 +88,7 @@ String resultBtnTypeJsp = (String) session.getAttribute("resultBtnType");
 										type="button">
 										<span>회원정보수정</span>
 									</button>
-									<button onclick="location.href='list.jsp'"
+									<button onclick="location.href='board/list3.do'"
 										title="게시판 바로가기" class="btn btn-default"
 										type="button">
 										<span>게시판 바로가기</span>

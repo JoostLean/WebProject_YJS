@@ -1,39 +1,10 @@
-<%@ page import="member.MemberDTO"%>
-<%@ page import="member.MemberDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-MemberDTO dto = (MemberDTO) request.getAttribute("dto");
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	function validateForm(form) {
-		if (form.user_name.value == "") {
-			alert("작성자를 입력하세요.");
-			form.user_name.focus();
-			return false;
-		}
-		if (form.title.value == "") {
-			alert("제목을 입력하세요.");
-			form.title.focus();
-			return false;
-		}
-		if (form.passwd.value == "") {
-			alert("비밀번호를 입력하세요.");
-			form.passwd.focus();
-			return false;
-		}
-		if (form.content.value == "") {
-			alert("내용을 입력하세요.");
-			form.content.focus();
-			return false;
-		}
-	}
-</script>
 </head>
 <link rel="stylesheet" href="./css/fonts.css" />
 <link rel="stylesheet" href="./css/style.css" />
@@ -42,10 +13,9 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 <body>
 	<div id="s_qanda_board" class="mb-board">
 		<div class="mb-level-1 mb-name-s-qanda mb-mode-write mb-skin-bbs-qanda-m1">
-			<form action="write.do" onsubmit="return validateForm(this);"
-				name="s_qanda_form_board_write" id="s_qanda_form_board_write"
+			<form name="s_qanda_form_board_write" id="s_qanda_form_board_write"
 				method="post" enctype="multipart/form-data" autocomplete="off">
-				<!-- <input type="hidden" name="mb_nonce_value" value="2f5cf95d9ad6044fd961360392e720b2">
+				<input type="hidden" name="mb_nonce_value" value="2f5cf95d9ad6044fd961360392e720b2">
 				<input type="hidden" name="mb_nonce_time" value="1710264501">
 				<input type="hidden" id="wp_nonce_value" name="wp_nonce_value"
 					value="4883e0cdaf">
@@ -64,13 +34,13 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 				<input type="hidden" name="parent_pid" id="parent_pid" value="0">
 				<input type="hidden" name="parent_user_pid" id="parent_user_pid" value="0">
 				<input type="hidden" name="calendar_date" id="calendar_date" value="">
-				<input type="password" autocomplete="off" style="display: none !important;"> -->
+				<input type="password" autocomplete="off" style="display: none !important;">
 				<div class="mb-style1">
 					<div class="main-style1" id="s_qanda_board_box">
 						<div>
 							<div class="pull-right">
-								<label><!-- <input name="is_secret" type="checkbox" value="1"
-									onclick="checkBoxDisplayID(this,'mb_s_qanda_tr_passwd');">비밀글 --></label>
+								<label><input name="is_secret" type="checkbox" value="1"
+									onclick="checkBoxDisplayID(this,'mb_s_qanda_tr_passwd');">비밀글</label>
 							</div>
 							<div class="clear"></div>
 						</div>
@@ -82,7 +52,7 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 								<col class="mb-col-item2">
 							</colgroup>
 							<tbody>
-								<!-- <tr id="mb_s_qanda_tr_category1">
+								<tr id="mb_s_qanda_tr_category1">
 									<th scope="row"><label for="mb_s_qanda_category1_w2">카테고리</label></th>
 									<td>
 										<select title="Category1" onchange="" name="category1"
@@ -94,14 +64,12 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 										<input type="hidden" name="category2" value="">
 										<input type="hidden" name="category3" value="">
 									</td>
-								</tr> -->
-								<tr id="mb_s_basic21_tr_user_name">
-									<th scope="row"><label for="mb_s_basic21_user_name_w3">작성자(*)</label></th>
-									<td>
-										<input class="mb-user-name" style="width:150px;"
-										name="user_name" id="mb_s_basic21_user_name_w3" title=""
-										value="${ UserName }" type="text" maxlength="20">
-									</td>
+								</tr>
+								<tr id="mb_s_qanda_tr_passwd" style="display: none;">
+									<th scope="row"><label for="mb_s_qanda_passwd_w4">비밀번호(*)</label></th>
+									<td><input class="mb-passwd" style="width: 150px;"
+										name="passwd" id="mb_s_qanda_passwd_w4" title=""
+										maxlength="16" value="" autocomplete="off" type="password"></td>
 								</tr>
 								<tr id="mb_s_qanda_tr_title">
 									<th scope="row"><label for="mb_s_qanda_title_w5">제목(*)</label></th>
@@ -111,19 +79,13 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 										type="text">
 									</td>
 								</tr>
-								<tr id="mb_s_qanda_tr_passwd">
-									<th scope="row"><label for="mb_s_qanda_passwd_w4">비밀번호(*)</label></th>
-									<td><input class="mb-passwd" style="width: 150px;"
-										name="passwd" id="mb_s_qanda_passwd_w4" title=""
-										maxlength="16" value="" autocomplete="off" type="password"></td>
-								</tr>
 								<tr id="mb_s_qanda_tr_content">
 									<td class="content-box" colspan="2" style="overflow: visible;">
 										<input type="hidden" name="data_type" id="data_type" value="html">
 										<textarea class="mb-content"
 											style="width: 100%; height: 360px; /* visibility: hidden; display: none; */ resize: none;"
 											name="content" id="se_content" title="내용"></textarea>
-										<!-- <div class="mb-editor-composer mb-editor-composer-se_content"
+										<div class="mb-editor-composer mb-editor-composer-se_content"
 											style="border: 1px solid rgb(181, 181, 181); /* margin-top: -7px !important; */">
 											<input type="hidden" name="mb-editor-composer-id" value="se_content">
 											<div class="mb-editor-attr-box" style="display: none;">
@@ -956,10 +918,10 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 													</a>
 												</div>
 											</div>
-										</div> -->
+										</div>
 									</td>
 								</tr>
-								<!-- <tr id="mb_s_qanda_tr_tag">
+								<tr id="mb_s_qanda_tr_tag">
 									<th scope="row">
 										<label for="mb_s_qanda_tag_w7">태그</label>
 									</th>
@@ -968,36 +930,32 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 										id="mb_s_qanda_tag_w7" title="" value="" type="text">
 										<span class="mb-description">(태그는 쉼표로 구분해서 입력해 주세요)</span>
 									</td>
-								</tr> -->
+								</tr>
 								<tr id="mb_s_qanda_tr_file1">
 									<th scope="row"><label for="mb_s_qanda_file1_w8">파일1</label></th>
-									<td>
-										<!-- <input class="mb-file-upload" style="width: 300px;"
+									<td><input class="mb-file-upload" style="width: 300px;"
 										name="file1" id="mb_s_qanda_file1_w8" title="" value=""
-										type="file"> -->
-										<input class="mb-file-upload" style="width: 300px;"
-										name="ofile" id="mb_s_qanda_file1_w8" title="" value=""
-										type="file">
-									</td>
+										type="file"></td>
 								</tr>
-								<!-- <tr id="mb_s_qanda_tr_file2">
+								<tr id="mb_s_qanda_tr_file2">
 									<th scope="row"><label for="mb_s_qanda_file2_w9">파일2</label></th>
 									<td><input class="mb-file-upload" style="width: 300px;"
 										name="file2" id="mb_s_qanda_file2_w9" title="" value=""
 										type="file"></td>
-								</tr> -->
+								</tr>
 							</tbody>
 						</table>
 					</div>
 					<div class="write-btn">
 						<div class="btn-box-right" id="s_qanda_btn_box">
 							<div class="btn-box-left" style="float: left;">
-								<button onclick="location.href='list3.do';"
+								<button onclick="movePage('https://demo.mangboard.com/s_qanda_m1/?mode=list');return false;"
 									title="목록" class="btn btn-default btn-list" type="button">
 									<span>목록</span>
 								</button>
 							</div>
-							<button title="확인" class="btn btn-default btn-send-write" type="submit">
+							<button onclick="checkWriteData();return false;" title="확인"
+								class="btn btn-default btn-send-write" type="button">
 								<span>확인</span>
 							</button>
 						</div>

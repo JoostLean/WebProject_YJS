@@ -29,23 +29,26 @@
 										<div class="view-td-titlebox">
 											<div class="view-td-titlebox">
 												<div class="view-td-title">
-													<span>${ dto.title }</span>
+													<span>물품 주문합니다 </span>
 												</div>
 												<div>
-													<span class="view-td-user">
-														<a href="javascript:;" onclick="getUserMenu('108','190');return false;"
-														class="btn-user-picture" role="button">
-															<!-- <img decoding="async" class="mb-user-small-picture radius-3"
-															alt="user icon" src="" style="vertical-align: middle;
-															max-width: 20px; max-height: 20px;" /> -->
-														</a>
-														<a href="javascript:;" onclick="" title="" class="btn-user-info"
-														role="button"><span>${ dto.name }</span></a>
-														<!-- <img decoding="async" class="user-i-level mb-level-5"
-														alt="Level 5" src="images/icon_level5.gif" /> -->
+													<span class="view-td-user"> <a href="javascript:;"
+														onclick="getUserMenu('108','190');return false;"
+														class="btn-user-picture" role="button"> <img
+															decoding="async" class="mb-user-small-picture radius-3"
+															alt="user icon"
+															style="vertical-align: middle; max-width: 20px; max-height: 20px;"
+															src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
+													</a> <a href="javascript:;"
+														onclick="getUserMenu('108','190','sunnypark');return false;"
+														title="sunnypark **2.146.20*.1**" class="btn-user-info"
+														role="button"> <span>sunnypark</span>
+													</a> <img decoding="async" class="user-i-level mb-level-5"
+														alt="Level 5"
+														src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" />
 													</span> <span class="view-line">&nbsp;&nbsp;&nbsp;</span>
 													<div class="pull-right">
-														<span class="view-td-date">${ dto.postdate }</span>
+														<span class="view-td-date">2023-12-20 23:00</span>
 													</div>
 												</div>
 												<div class="clear"></div>
@@ -56,26 +59,21 @@
 								<tr id="mb_s_qanda_tr_content">
 									<td class="content-box text-left" colspan="2">
 										<p style="line-height: 1.8;">
-											<span style="font-size: 13px; font-family: '나눔고딕', 'Nanum Gothic', sans-serif;">
-											${ dto.content }
-												<p>
-													<c:if test="${ not empty fileName }">
-													<img decoding="async" 
-													src="<%=request.getContextPath() %>/Uploads/${ fileName }" 
-													alt="${ fileName }" title="${ fileName }" />
-													</c:if>												
-												</p>
+											<span
+												style="font-size: 13px; font-family: '나눔고딕', 'Nanum Gothic', sans-serif;">예시
+												요청합니다<img decoding="async"
+												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2023/12/20/F5620_GIF.gif"
+												alt="GIF.gif" title="GIF.gif" />
 											</span>
 										</p>
 									</td>
 								</tr>
 								<tr id="mb_s_qanda_tr_file_download">
 									<th scope="row"><span>첨부파일</span></th>
-									<td><a href="<%=request.getContextPath() %>/download.do?ofile=${ dto.ofile }
-										&sfile=${ dto.sfile }&idx=${ dto.idx }" class="file-download"
-										title="Download : ${ dto.downcount }"
-										onclick=""> <span>${ dto.sfile }
-												<!-- <span class="file-size">(8.7KB)</span> -->
+									<td><a href="javascript:;" class="file-download"
+										title="Download : 0"
+										onclick="sendBoardFileData(5621,'GIF.gif');return false;"> <span>GIF.gif
+												<span class="file-size">(8.7KB)</span>
 										</span>
 									</a></td>
 								</tr>
@@ -90,19 +88,12 @@
 									<span class="cmt-count"> <span class="cmt-count-num"
 										id="mb_comment_totalcount_190">0</span>
 								</span>
-								</span> <span class="view-td-hit view-td-hit">｜&nbsp; 조회수 ${ dto.visitcount }</span>
+								</span> <span class="view-td-hit view-td-hit">｜&nbsp; 조회수 29</span>
 							</div>
 							<button
-								onclick="location.href='list3.do';" title="목록" class="btn btn-default btn-list" type="button">
+								onclick="movePage('https://demo.mangboard.com/s_qanda_m1/?mode=list');return false;"
+								title="목록" class="btn btn-default btn-list" type="button">
 								<span>목록</span>
-							</button>
-							<button
-								onclick="" title="수정" class="btn btn-default btn-modify" type="button">
-								<span>수정</span>
-							</button>
-							<button
-								onclick="location.href='write.do';" title="글쓰기" class="btn btn-default btn-write" type="button">
-								<span>글쓰기</span>
 							</button>
 							<div class="clear"></div>
 						</div>

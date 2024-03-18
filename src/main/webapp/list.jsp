@@ -1,15 +1,17 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="./css/fonts.css" />
-<link rel="stylesheet" href="./css/style.css" />
-<link rel="stylesheet" href="./css/list/style.css" />
-<link rel="stylesheet" href="./css/list/custom.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/fonts.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/style.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/list/style.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/list/custom.css" />
 <style type="text/css">
 .ht-body-head-wrapper {	background-color: #fdfdfd; }
 .mb-board { max-width: 1200px !important; padding: 25px 10px 15px 10px !important; margin: 0 auto; }
@@ -33,42 +35,35 @@
 <body>
 	<div id="s_qanda_board" class="mb-board">
 		<div class="mb-level-0 mb-name-s-qanda mb-mode-list mb-skin-bbs-qanda-m1">
-			<div style="padding: 10px 3px 20px; font-size: 15px; line-height: 1.6em">
+			<!-- <div style="padding: 10px 3px 20px; font-size: 15px; line-height: 1.6em">
 				<span class="mb-product-title-style1" style="font-weight: 600;">
 					<a href="https://www.mangboard.com/store/?vid=25" target="_blank">질문&답변
 						스킨 M1 <span class="mb-link-order">구매하기</span>
 					</a>
 				</span>
 				<span>(질문 및 답변을 관리 할 수 있는 기능, 폰트크기 13px)</span>
-			</div>
+			</div> -->
 			<div class="mb-style1 board-list">
 				<form name="s_qanda_form_board_search" id="s_qanda_form_board_search" method="post">
 					<input type="hidden" name="board_name" value="s_qanda" />
 					<div class="list-head">
-						<div class="mb-category">
-							<button onclick="sendTabReload('');return false;" title="전체"
+						<!-- <div class="mb-category">
+							<button onclick="" title="전체"
 								class="tab-menu-on" type="button">
 								<span>전체</span>
 							</button>
-							<button
-								onclick="sendTabReload('%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC1');return false;"
-								title="카테고리1" class="tab-menu-off" type="button">
+							<button onclick="" title="카테고리1"
+								class="tab-menu-off" type="button">
 								<span>카테고리1</span>
 							</button>
-							<button
-								onclick="sendTabReload('%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC2');return false;"
-								title="카테고리2" class="tab-menu-off" type="button">
+							<button onclick="" title="카테고리2" type="button"
+								class="tab-menu-off">
 								<span>카테고리2</span>
-							</button>
-							<button
-								onclick="sendTabReload('%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC3');return false;"
-								title="카테고리3" class="tab-menu-off" type="button">
-								<span>카테고리3</span>
 							</button>
 							<input type="hidden" name="category1" value="" />
 							<input type="hidden" name="category2" value="" />
 							<input type="hidden" name="category3" value="" />
-						</div>
+						</div> -->
 						<div class="list-search">
 							<select id="search_field" name="search_field"
 								class="search-field margin-right-5" title="Search Field">
@@ -94,7 +89,7 @@
 				</form>
 				<form name="s_qanda_form_board_list" id="s_qanda_form_board_list"
 					method="post">
-					<input type="hidden" name="board_name" id="board_name" value="s_qanda" />
+					<!-- <input type="hidden" name="board_name" id="board_name" value="s_qanda" />
 					<input type="hidden" name="page_id" id="page_id" value="" />
 					<input type="hidden" name="list_type" id="list_type" value="list" />
 					<input type="hidden" name="page" id="page" value="1" />
@@ -107,9 +102,10 @@
 					<input type="hidden" id="wp_nonce_value" name="wp_nonce_value"
 						value="4883e0cdaf" />
 					<input type="hidden" name="_wp_http_referer" value="/s_qanda_m1/" />
-					<input type="hidden" name="lang" value="ko_KR" />
+					<input type="hidden" name="lang" value="ko_KR" /> -->
 					<div class="main-style1" id="s_qanda_board_box">
 						<table cellspacing="0" cellpadding="0" border="0" id="tbl_board_list" class="table table-list">
+							<!-- 각 행의 너비 지정 -->
 							<colgroup>
 								<col style="width: 50px" class="mb-col-pid mb-hide-mobile mb-hide-tablet" />
 								<col class="mb-col-title" />
@@ -118,6 +114,7 @@
 								<col style="width: 60px" class="mb-col-hit mb-hide-mobile mb-hide-tablet" />
 								<col style="width: 74px" class="mb-col-ext9 mb-hide-mobile" />
 							</colgroup>
+							<!-- 상단의 열 제목 -->
 							<thead>
 								<tr>
 									<th scope="col" class="mb-th-pid mb-hide-mobile mb-hide-tablet order-asc" class="order-asc">
@@ -152,541 +149,71 @@
 									</th>
 								</tr>
 							</thead>
-							<tbody id="s_qanda_board_body">
-								<tr id="mb_s_qanda_tr_1">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>193</span></td>
-									<td class="text-left">
-										<a href="https://demo.mangboard.com/s_qanda_m1/?vid=193" title="ㄹㄹ">
-											<span>ㄹㄹ</span>
-										</a>
-									</td>
-									<td>
-										<span>
-											<a href="javascript:;" onclick="getUserMenu('1009','193');return false;" class="btn-user-picture" role="button">
-												<img decoding="async" class="mb-user-small-picture radius-3" alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://phinf.pstatic.net/contact/20190701_173/15619717147898XnFx_PNG/avatar_profile.png" />
-											</a>
-											<a href="javascript:;" onclick="getUserMenu('1009','193','삶의무게를느끼며');return false;"
-											title="삶의무게를느끼며" class="btn-user-info" role="button">
-												<span>삶의무게를느끼며</span>
-											</a>
-											<img decoding="async" class="user-i-level mb-level-1" alt="Level 1"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level1.gif" />
-										</span>
-									</td>
-									<td class="mb-hide-mobile"><span>2024-02-29</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>4</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_2">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>190</span></td>
-									<td class="text-left">
-										<a href="https://demo.mangboard.com/s_qanda_m1/?vid=190" title="물품 주문합니다">
-											<span>물품 주문합니다
-												<img decoding="async" class="list-i-file" alt="file"
-													src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" />
-											</span>
-										</a>
-									</td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','190');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','190','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>27</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_3">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>188</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=188"
-										title="GIF"><span>GIF 
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','188');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','188','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>6</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_4">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>185</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=185"
-										title="GIF"><span>GIF
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','185');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','185','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>5</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_5">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>184</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=184"
-										title="JPG"><span>JPG
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','184');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','184','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>7</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_6">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>183</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=183"
-										title="PNG"><span>PNG
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','183');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','183','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>6</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_7">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>182</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=182"
-										title="ㄴㄹㅇㅇㄹ"><span>ㄴㄹㅇㅇㄹ
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','182');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','182','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>3</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_8">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>179</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=179"
-										title="파일첨부"><span>파일첨부
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','179');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','179','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>2</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_9">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>178</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=178"
-										title="테스트"><span> <img decoding="async"
-												class="list-i-secret" alt="secret"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_secret.gif" />
-												테스트
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','178');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','178','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-12-20</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>1</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-empty'>답변대기</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_10">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>175</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=175"
-										title="테스트"><span>테스트</span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','175');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','175','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-07-13</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>31</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_11">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>174</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=174"
-										title="[카테고리3] 테스트임다"><span><span
-												class="category1-text category1-item3">[카테고리3]</span> 테스트임다
-												</span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','174');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','174','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-06-21</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>15</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_12">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>172</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=172"
-										title="test"><span>test</span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','172');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','172','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-05-29</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>12</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_13">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>170</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=170"
-										title="[카테고리2] im testing u"><span><span
-												class="category1-text category1-item2">[카테고리2]</span> im
-												testing u
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','170');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','170','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-03-15</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>31</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_14">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>167</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=167"
-										title="[카테고리2] 와우"><span><span
-												class="category1-text category1-item2">[카테고리2]</span> 와우</span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('933','167');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://ssl.pstatic.net/static/pwe/address/img_profile.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('933','167','-');return false;"
-											title="-" class="btn-user-info" role="button"><span>-</span></a>
-											<img decoding="async" class="user-i-level mb-level-1"
-											alt="Level 1"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level1.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2023-02-14</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>23</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_15">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>157</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=157"
-										title="[카테고리1] [Layout]INDONESIAJAKARTA_Ritz Carton Hotel_GDR"><span><span
-												class="category1-text category1-item1">[카테고리1]</span>
-												[Layout]INDONESIAJAKARTA_Ritz Carton Hotel_GDR
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','157');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','157','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2022-11-21</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>52</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_16">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>150</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=150"
-										title="[카테고리1] 테스트 질문 해 봅니당"><span><span
-												class="category1-text category1-item1">[카테고리1]</span> 테스트 질문
-												해 봅니당
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('891','150');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="http://k.kakaocdn.net/dn/blk0Px/btq0iXpPqiR/50OeFfnTDZekqPXrqWju5k/img_110x110.jpg" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('891','150','Eungul Mark Cho');return false;"
-											title="Eungul Mark Cho" class="btn-user-info" role="button"><span>Eungul
-													Mark Cho</span></a> <img decoding="async"
-											class="user-i-level mb-level-1" alt="Level 1"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level1.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2022-06-10</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>75</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_17">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>144</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=144"
-										title="[카테고리1] 000 Prioject "><span><span
-												class="category1-text category1-item1">[카테고리1]</span> 000
-												Prioject <span class='cmt-count'> [<span
-													class='cmt-count-num'>1</span>]
-											</span>
-												<img decoding="async" class="list-i-file" alt="file"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_file.gif" /></span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','144');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','144','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2022-04-14</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>98</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_18">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>142</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=142"
-										title="[카테고리1] dsf"><span><span
-												class="category1-text category1-item1">[카테고리1]</span> dsf</span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','142');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','142','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2022-04-09</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>31</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_19">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>137</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=137"
-										title="[카테고리3] 테스트 질문입니다."><span><span
-												class="category1-text category1-item3">[카테고리3]</span> 테스트
-												질문입니다.</span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','137');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','137','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2022-02-21</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>50</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-								<tr id="mb_s_qanda_tr_20">
-									<td class="mb-hide-mobile mb-hide-tablet"><span>136</span></td>
-									<td class="text-left"><a
-										href="https://demo.mangboard.com/s_qanda_m1/?vid=136"
-										title="[카테고리2] tewtstetse"><span><span
-												class="category1-text category1-item2">[카테고리2]</span>
-												tewtstetse</span></a></td>
-									<td><span><a href="javascript:;"
-											onclick="getUserMenu('108','136');return false;"
-											class="btn-user-picture" role="button"><img
-												decoding="async" class="mb-user-small-picture radius-3"
-												alt="user icon"
-												style="vertical-align: middle; max-width: 20px; max-height: 20px;"
-												src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
-										</a><a href="javascript:;"
-											onclick="getUserMenu('108','136','sunnypark');return false;"
-											title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a>
-											<img decoding="async" class="user-i-level mb-level-5"
-											alt="Level 5"
-											src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/icon_level5.gif" /></span></td>
-									<td class="mb-hide-mobile"><span>2022-01-10</span></td>
-									<td class="mb-hide-mobile mb-hide-tablet"><span>35</span></td>
-									<td class="mb-hide-mobile">
-										<div class='mb-reply-status mb-reply-select'>답변완료</div>
-									</td>
-								</tr>
-							</tbody>
-
+							
+							
+<tbody id="s_qanda_board_body">
+<c:choose>
+	<c:when test="${ empty boardLists }">
+		<!-- 게시물이 없을 때 -->
+		<tr>
+			<td colspan="6" align="center">
+				등록된 게시물이 없습니다.
+			</td>
+		</tr>
+	</c:when>
+	<c:otherwise>
+		<c:forEach items="${ boardLists }" var="row" varStatus="loop">
+		<tr id="mb_s_qanda_tr_${ row.idx }">
+			<td>
+			<%-- ${ map.totalCount - (((map.page-1) * map.pageMax) + loop.index) } --%>
+			${ board3.totalCount - (((board3.pageNum-1) * board3.pageSize) + loop.index) }
+			</td>
+			<%-- <td class="mb-hide-mobile mb-hide-tablet">
+				<span>${ row.idx }</span>
+			</td> --%>
+			<td class="text-left">
+				<a href="view.do?idx=${ row.idx }" title="${ row.title }">
+				<span>
+					<span class="category1-text category1-item2"></span>${ row.title }
+						<c:if test="${ not empty row.ofile }">
+							<img decoding="async" class="list-i-file" alt="file"
+							src="<%=request.getContextPath() %>/images/icon_file.gif" />
+						</c:if>
+					</span>
+				</a>
+			</td>
+			<td>
+				<span>
+					<!-- <a href="javascript:;" onclick=""
+					class="btn-user-picture" role="button">
+					<img decoding="async" class="mb-user-small-picture radius-3" alt="user icon"
+						style="vertical-align: middle; max-width: 20px; max-height: 20px;"
+						src="https://demo.mangboard.com/wp-content/uploads/mangboard/2022/03/27/F4821_80e35f7f1612247345303.png" />
+					</a> -->
+					<!-- <a href="javascript:;"
+					onclick="getUserMenu('108','170','sunnypark');return false;"
+					title="sunnypark" class="btn-user-info" role="button"><span>sunnypark</span></a> -->
+					<span>${ row.name }</span>
+					<!-- <img decoding="async" class="user-i-level mb-level-5"
+					alt="Level 5"
+					src="images/icon_level5.gif" /> -->
+				</span>
+			</td>
+			<td class="mb-hide-mobile"><span>${ row.postdate }</span></td>
+			<td class="mb-hide-mobile mb-hide-tablet"><span>${ row.visitcount }</span></td>
+			<td class="mb-hide-mobile">
+				<c:if test="${ not empty row.ofile }">
+					<div class='mb-reply-status mb-reply-select'>다운가능</div>
+				</c:if>
+				<c:if test="${ empty row.ofile }">
+					<div class='mb-reply-status mb-reply-empty'>파일없음</div>
+				</c:if>
+			</td>
+		</tr>
+		</c:forEach>
+	</c:otherwise>
+</c:choose>
+</tbody>
 						</table>
 					</div>
 
@@ -695,8 +222,7 @@
 						<div class="btn-box-right" id="s_qanda_btn_box">
 							<div class="btn-box-left" style="float: left;"></div>
 							<button
-								onclick="movePage('https://demo.mangboard.com/s_qanda_m1/?mode=write&#038;board_action=write');return false;"
-								title="글쓰기" class="btn btn-default btn-write" type="button">
+								onclick="location.href='write.do';" title="글쓰기" class="btn btn-default btn-write" type="button">
 								<span>글쓰기</span>
 							</button>
 							<div class="clear"></div>
@@ -712,10 +238,23 @@
 							class="table table-page" align="center">
 							<tbody>
 								<tr>
+									<%-- ${ map.pagingImg } --%>
+									${ board3.pagingImg }
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- <div id="s_qanda_pagination_box" class="pagination-box">
+					<div class="pagination-large">
+						<table cellspacing="0" cellpadding="0" border="0"
+							class="table table-page" align="center">
+							<tbody>
+								<tr>
 									<td class="page_arrow mb-disabled mb-mobile-hide"><a
 										title="처음" class="btn-start" role="button"><span><img
 												decoding="async"
-												src="https://demo.mangboard.com/wp-content/plugins/mangboard/skins/bbs_qanda_m1/images/btn_paging_pprev.gif"
+												src="images/btn_paging_pprev.gif"
 												alt="처음" style="width: 15px;" /></span></a></td>
 									<td class="page_arrow mb-disabled"><a title="이전"
 										class="btn-prev" role="button"><span><img
@@ -745,7 +284,7 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

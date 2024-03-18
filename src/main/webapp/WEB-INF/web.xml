@@ -49,6 +49,41 @@
     <servlet-name>MemberRegist</servlet-name>
     <servlet-class>member.MemberRegist</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BoardList3</servlet-name>
+  	<servlet-class>board.ListController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BoardList3</servlet-name>
+  	<url-pattern>/list3.do</url-pattern>
+  </servlet-mapping>
+    <!-- 글 작성하기 -->
+  <servlet>
+    <servlet-name>BoardWrite</servlet-name>
+    <servlet-class>board.WriteController</servlet-class>
+    <multipart-config>
+      <max-file-size>1048576</max-file-size>
+      <max-request-size>10485760</max-request-size>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BoardWrite</servlet-name>
+    <url-pattern>/write.do</url-pattern>
+  </servlet-mapping>
+  
+  <!--
+  게시판의 페이징 기능 추가 
+  	POSTS_PER_PAGE : 한 페이지에 출력할 게시물의 갯수를 설정 
+  	PAGES_PER_BLOCK : 한 블럭당 출력할 페이지번호의 갯수를 설정 
+  -->
+  <context-param>
+    <param-name>POSTS_PER_PAGE</param-name>
+    <param-value>2</param-value>
+  </context-param>
+  <context-param>
+    <param-name>PAGES_PER_BLOCK</param-name>
+    <param-value>2</param-value>
+  </context-param>
 <!--   <servlet-mapping>
     <servlet-name>MemberRegist</servlet-name>
     <url-pattern>/regist.do</url-pattern>

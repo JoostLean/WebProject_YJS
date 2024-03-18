@@ -52,8 +52,8 @@ public class MVCBoardDAO extends DBConnPool {
 		//정렬을 위한 컬럼명은 num -> idx 로 변경된다.
 		if (map.get("searchWord") != null)
 		{
-			query += " WHERE " + map.get("searchField")
-				   + " LIKE '%" + map.get("searchWord") + "%' ";
+			query += " WHERE " + map.get("search_field")
+				   + " LIKE '%" + map.get("search_text") + "%' ";
 		}
 		query += "		ORDER BY idx DESC "
 			   + "	) Tb "

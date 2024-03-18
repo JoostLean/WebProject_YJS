@@ -152,7 +152,7 @@
 .mb-style1 .table-write{border-top:1px solid #dbdbdb !important;} 
 .mb-style1 .table-write>tbody th {padding:7px 3px 10px 13px !important;border-right:1px solid #EFEFEF !important;background-color:#FBFBFB !important;}
 .mb-style1 .table-write>tbody td {padding:12px 11px 10px 13px !important;background-color:#FFF;}
-.mb-style1 .table-write>tbody td.content-box {padding:2px 0 0 !important;}
+.mb-style1 .table-write>tbody td.content-box {padding:2px 0 10px !important;}
 /* write style end */
 
 

@@ -94,9 +94,15 @@ public class EditController extends HttpServlet {
 		
 		//DAO 인스턴스 생성
 		MVCBoardDAO dao = new MVCBoardDAO();
+		
+		if (name == null) {
+		    System.out.println("오류");
+		}
+		
 		//게시물 수정을 위한 update 쿼리문 실행
 		int result = dao.updatePost(dto);
 		dao.close();
+		System.out.println(session.getAttribute("pass"));
 		
 		if (result == 1) {
 			//수정이 완료되었다면 검증에 사용한 패스워드는 삭제한다.

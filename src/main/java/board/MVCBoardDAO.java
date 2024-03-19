@@ -221,6 +221,7 @@ public class MVCBoardDAO extends DBConnPool {
 			삭제를 해아한다. 따라서 아래와 같이 where절에는 idx와
 			pass까지 조건을 추가하는것이 좋다. 
 			*/
+			/*
 			String query = "UPDATE mvcboard"
 						 + " SET title=?, name=?, content=?, ofile=?, sfile=? "
 						 + " WHERE idx=? and pass=?";
@@ -233,6 +234,19 @@ public class MVCBoardDAO extends DBConnPool {
 			psmt.setString(5, dto.getSfile());
 			psmt.setString(6, dto.getIdx());
 			psmt.setString(7, dto.getPass());
+			*/
+						
+			String query = "UPDATE mvcboard"
+					+ " SET title=?, content=?, ofile=?, sfile=? "
+					+ " WHERE idx=? and pass=?";
+			
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getTitle());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getOfile());
+			psmt.setString(4, dto.getSfile());
+			psmt.setString(5, dto.getIdx());
+			psmt.setString(6, dto.getPass());
 			
 			result = psmt.executeUpdate();
 		}

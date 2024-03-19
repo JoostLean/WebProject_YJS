@@ -11,34 +11,6 @@
 <link rel="stylesheet" href="./css/regist.css" />
 </head>
 <script>
-function validateForm(form) {
-	if (form.user_id.value.length < 8) {
-		alert("8글자 이상의 아이디를 입력해주세요.");
-		form.user_id.focus();
-		return false;
-	}
-	if ((form.user_id.value[0] < 'a' || form.user_id.value[0] > 'z') &&
-		(form.user_id.value[0] < 'A' || form.user_id.value[0] > 'Z')) {
-		alert("아이디는 영문으로 시작하여야 합니다.");
-		form.user_name.focus();
-		return false;
-	}
-	if (form.user_name.value == "") {
-		alert("이름을 입력해주세요.");
-		form.user_name.focus();
-		return false;
-	}
-	if (form.passwd.value == "") {
-		alert("비밀번호를 입력해주세요.");
-		form.passwd.focus();
-		return false;
-	}
-	if (form.passwd2.value == "") {
-		alert("비밀번호 확인란에 비밀번호를 입력해주세요.");
-		form.passwd2.focus();
-		return false;
-	}
-}
 function checkUserIDExist() {
 	if (document.getElementById("mb_user_register_user_id_w2").value) {
 		//XHR 객체를 생성한다.
@@ -69,6 +41,46 @@ function checkUserIDExist() {
 		alert("아이디를 입력해주세요.");
 	}
 	return false;
+}
+function validateForm(form) {
+	if (document.getElementById("mb_user_register_user_id_w2").value) {
+		//콜백함수
+        xhr.onreadystatechange = function() {
+			//xhr.readyState==4 : 데이터를 전부 받은 상태, xhr.status==200 : 요청성공
+        	if (xhr.readyState == 4 && xhr.status == 200) {
+        		//뒤에 trim() 안 붙이면 응답값의 좌우에 무조건 공백이 있는걸로 인식되서 처리 안됨
+        		if (xhr.responseText.trim() == "id_exist") {
+        			alert("이미 존재하는 아이디입니다.");
+        		}
+        	}
+        };
+	}
+	if (form.user_id.value.length < 8) {
+		alert("8글자 이상의 아이디를 입력해주세요.");
+		form.user_id.focus();
+		return false;
+	}
+	if ((form.user_id.value[0] < 'a' || form.user_id.value[0] > 'z') &&
+		(form.user_id.value[0] < 'A' || form.user_id.value[0] > 'Z')) {
+		alert("아이디는 영문으로 시작하여야 합니다.");
+		form.user_name.focus();
+		return false;
+	}
+	if (form.user_name.value == "") {
+		alert("이름을 입력해주세요.");
+		form.user_name.focus();
+		return false;
+	}
+	if (form.passwd.value == "") {
+		alert("비밀번호를 입력해주세요.");
+		form.passwd.focus();
+		return false;
+	}
+	if (form.passwd2.value == "") {
+		alert("비밀번호 확인란에 비밀번호를 입력해주세요.");
+		form.passwd2.focus();
+		return false;
+	}
 }
 </script>
 <body>

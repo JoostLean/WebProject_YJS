@@ -80,7 +80,7 @@ public class PassController extends HttpServlet {
 				}
 				//게시물 삭제가 완료되면 목록으로 이동한다.
 				JSFunction.alertLocation(resp, "삭제되었습니다.",
-						"list.do");
+						"list3.do");
 			}
 		}
 		else {

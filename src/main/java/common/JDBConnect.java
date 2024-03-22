@@ -23,7 +23,7 @@ public class JDBConnect {
 			//오라클 JDBC 드라이버 로드
 			Class.forName("oracle.jdbc.OracleDriver");
 			//커넥션URL, 계정 아이디와 패스워드
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 			String id = "musthave";
 			String pwd = "1234";
 			//오라클에 연결

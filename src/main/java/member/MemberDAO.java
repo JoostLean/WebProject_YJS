@@ -25,7 +25,7 @@ public class MemberDAO extends JDBConnect {
 		/* 로그인 폼에서 입력한 아이디, 패스워드를 통해 인파라미터를 설정할
 		수 있도록 쿼리문을 작성 */
 		String query = "INSERT INTO member (id, pass, name, regidate) "
-				+ " VALUES (?, ?, ?, ?)";
+				+ " VALUES (?, ?, ?, sysdate)";
 		String regidate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		try {
 			//쿼리문 실행과 인파라미터 설정을 위한 prepared 인스턴스 생성
@@ -34,7 +34,7 @@ public class MemberDAO extends JDBConnect {
 			psmt.setString(1, uid);
 			psmt.setString(2, upass);
 			psmt.setString(3, uname);
-			psmt.setString(4, regidate);
+			// psmt.setString(4, regidate);
 			
 			int result = psmt.executeUpdate();
 			
@@ -44,7 +44,8 @@ public class MemberDAO extends JDBConnect {
 				dto.setId(uid);
 				dto.setPass(uname);
 				dto.setName(upass);
-				dto.setRegidate(regidate);
+				dto.setRegidate(rs.getString(4));
+				//dto.setRegidate(regidate);
 			}
 		}
 		catch (Exception e) {

@@ -44,7 +44,7 @@
 			<td colspan="2" align="center">
 				<button type="submit">검증하기</button>
 				<button type="reset">RESET</button>
-				<button type="button" onclick="location.href='list.do';">
+				<button type="button" onclick="location.href='list3.do';">
 					목록 바로가기
 				</button>
 			</td>

@@ -109,7 +109,7 @@ MVCBoardDTO dto = new MVCBoardDTO();
 										<span>수정</span>
 									</button>
 									<button
-										onclick="" title="삭제" class="btn btn-default btn-delete" type="button">
+										onclick="location.href='<%= request.getContextPath() %>/validate.do?mode=delete&idx=${ param.idx }';" title="삭제" class="btn btn-default btn-delete" type="button">
 										<span>삭제</span>
 									</button>
 								</c:if>
